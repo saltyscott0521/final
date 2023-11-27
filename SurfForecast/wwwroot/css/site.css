@@ -1,0 +1,163 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('/images/surf.jpg') no-repeat center center fixed;
+  background-size: cover;
+  transition: background 0.5s ease-in-out;
+  color: white;
+  margin-bottom: 60px;
+}
+
+/* ---- About Us Page Styling -----*/
+h1, .data-model-heading, .charts-heading {
+  color: #006994; /* Sea Blue */
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+}
+
+.team-members {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.team-member {
+  width: 30%;
+  padding: 20px;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  transition: background 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+  .team-member:hover {
+      transform: translateY(-5px); /* Move up by 5 pixels on hover */
+  }
+
+h2 {
+  color: #006994; /* Sea Blue */
+}
+
+p {
+  color: #333;
+}
+
+img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.data-model {
+  text-align: center;
+  margin-top: 30px;
+  transition: transform 0.3s ease-in-out;
+}
+
+  .data-model img {
+      width: 70%;
+      border: 2px solid #006994; /* Sea Blue border color */
+      border-radius: 5px;
+  }
+
+  .data-model:hover {
+      transform: translateY(-5px); /* Move up by 5 pixels on hover */
+  }
+
+.data-model-container {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.github-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+  .github-link button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      background-color: #006994; /* Blue color */
+      color: #fff; /* White text */
+      border: 2px solid #0056b3; /* Darker blue border */
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+      .github-link button:hover {
+          background-color: #0056b3; /* Darker blue on hover */
+          transform: scale(1.05);
+      }
+
+/*----------- Home Page Styling ---------*/
+
+.charts {
+  text-align: center;
+  margin-top: 30px;
+  transition: transform 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.7); /* Blue color */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.dropdown{
+  text-align: left;
+  transition: background 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+.dropdown:hover {
+  transform: translateY(-2px); /* Move up by 5 pixels on hover */
+}
+.chart-section-title {
+  color: #829298; /* Sea Blue */
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+}
+.chart {
+  padding: 20px;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  transition: background 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+  .chart:hover {
+      transform: translateY(-5px); /* Move up by 5 pixels on hover */
+  }
+/*----------- Location Page Styling ---------*/
+  
+.add-new-container {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.form-group {
+  color: #006994; /* Sea Blue */
+}   

@@ -1,0 +1,143 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model ChartModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+
+  <!-- Bootstrap -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+
+</head>
+
+<body>
+  
+
+  <h1>Surf Forecast</h1>
+  
+  <div class="charts">
+
+  <h2 class="charts-heading"id="charts-heading">Forecast Models</h2>
+
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="locationSelectButton" data-toggle="dropdown">
+            Select Location
+          </button>
+          <div class="dropdown-menu">
+            @foreach (var location in ViewBag.Locations)
+            {
+            <a class="dropdown-item" href="#" data-location-id=@location.ID data-location="@location.Name">@location.Name</a>
+            }
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 text-right">
+        <a asp-area="" asp-controller="Home" asp-action="Location" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Add New Location</a>      </div>
+
+    </div>
+  </div>
+    
+  <h2 class="charts-heading"id="location-title">Cocoa Beach, FL</h2>
+
+  <div class="chart">
+  <canvas id="windspeed-chart" width="800" height="250"></canvas>
+  </div>
+
+  <div class="chart">
+  <canvas id="waveheight-chart" width="800" height="250"></canvas>
+  </div>
+
+</div>
+<!-- Chart JS -->  
+<script>
+
+new Chart(document.getElementById("windspeed-chart"), {
+  type: 'line',
+  data: {
+    labels: [@Html.Raw(@Model.WindChartModel.Labels)],
+    datasets: [
+      {
+        label: "Wind Speed (mph)",
+        fill: true,
+        borderColor: "#4169e1",
+        data: [@Model.WindChartModel.Data]
+      }
+    ]
+  },
+  options: {
+    legend: { display: false },
+    title: {
+      display: true,
+      text: 'Wind Speed (mph)'
+    }
+  }
+});
+
+new Chart(document.getElementById("waveheight-chart"), {
+  type: 'line',
+  data: {
+    labels: [@Html.Raw(@Model.SwellChartModel.Labels)],
+    datasets: [
+      {
+        label: "Wave Height (ft)",
+        fill: true,
+        borderColor: "#4169e1",
+        data: [@Model.SwellChartModel.Data]
+      }
+    ]
+  },
+  options: {
+    legend: { display: false },
+    title: {
+      display: true,
+      text: 'Wave Height (ft)'
+    }
+  }
+});
+</script>
+<script>
+
+  // jQuery script to update dropdown title based on location selection
+  $(document).ready(function () {
+    $('.dropdown-menu a').on('click', function () {
+      var selectedLocation = $(this).data('location');
+      var locationId = $(this).data('location-id');
+      updateCharts(locationId);
+
+    });
+
+    function updateCharts(locationId) {
+      // Update the URL with the new locationId
+      var currentUrl = window.location.href;
+      var newUrl = currentUrl.split('?')[0] + '?locationId=' + locationId;
+      window.location.href = newUrl;
+    }
+  });
+     $(document).ready(function () {     
+        $('#location-title').text(selectedLocation);
+    });
+</script>
+</body>
+</html>
