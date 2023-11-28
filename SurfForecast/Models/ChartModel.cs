@@ -11,6 +11,7 @@ namespace SurfForecast.Models;
     {
         public WindChartModel WindChartModel { get; set; }
         public SwellChartModel SwellChartModel { get; set; }
+        public LocationSelectViewModel locationSelectViewModel { get; set; }
     }
     public class WindChartModel
     {

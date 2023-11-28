@@ -11,11 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us </title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
-
 </head>
 
 <body>
@@ -34,7 +29,7 @@
 
         <div class="team-member" id="andrew">
             <h2>Andrew Scott</h2>
-            <p>Surfing enthusiast and coding ninja. Andrew enjoys the thrill of catching the perfect wave and writing efficient code.</p>
+            <p>Andrew has a background in Finance and Analytics and has been honing his programming and data technical skills. In his free time, Andrew enjoys surfing and any and all water related sports.</p>
             <img src="/images/andrew.jpg" alt="Andrew">
             <div class="contributions" style="margin-top: 10px;">
                 <h3 style="font-size: 16px;">Contributions</h3>
@@ -58,9 +53,19 @@
             <h2 class="data-model-heading">Data Model</h2>
             <p>
                 Our website revolves around three main tables in the data model: Wind, Waves, and Location. 
-                Data is sourced from a publically available weather API from openweathermap.org. A sample API endpoint is shown below.
+                Data is sourced from a publically available weather API from Windy.com. A sample API endpoint is shown below.
             </p>
-            <a href="https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=51de08d7fc9bfbc15136270d5738855f">https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99</a>
+            <a href="https://api.windy.com/point-forecast/docs">POST https://api.windy.com/api/point-forecast/v2</a>
+
+            <p>
+                    {<br />
+                    "lat": 49.809,<br />
+                    "lon": 16.787,<br />
+                    "model": "gfs",<br />
+                    "parameters": ["wind", "dewpoint", "rh", "pressure"],<br />
+                    "levels": ["surface", "800h", "300h"],<br />
+                    "key": "abcd123"<br />
+                    }</p>
 
         </div>
         <img src="/images/erd_DIS.png" alt="Data Model">

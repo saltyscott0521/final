@@ -39,4 +39,3 @@ namespace SurfForecast.Models;
         public Location Location { get; set; }
         
     }
-

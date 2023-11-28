@@ -94,8 +94,8 @@ public class HomeController : Controller
                     Console.WriteLine($"Error: {response.StatusCode} - {response.ReasonPhrase}");
                 }
 
-                Console.WriteLine(windin.Ts[0]);
-                Console.WriteLine(windin.WindUSurface[0]);
+                //Console.WriteLine(windin.Ts[0]);
+                //Console.WriteLine(windin.WindUSurface[0]);
 
                 //Convert 2D wind vectors into one speed
                 List<double> windSpeed = new List<double> {};
@@ -186,7 +186,7 @@ public class HomeController : Controller
                 Console.WriteLine($"Request error: {e.Message}");
             }
         }
-            Console.WriteLine("the location id is "+locationId);
+            //Console.WriteLine("the location id is "+locationId);
             // Charts
             var WindChartLabels = dbContext.Winds.Where(w => w.LocationID == locationId).Select(w => w.Timestamp).ToList();
             var WindChartData = dbContext.Winds.Where(w => w.LocationID == locationId).Select(w => w.WindSpeed).ToList();
@@ -205,11 +205,20 @@ public class HomeController : Controller
                 Labels = String.Join(",", SwellChartLabels.Select(s => "'" + s + "'")),
                 Data = String.Join(",", SwellChartData.Select(s => s)),
             };        
+
+            string locationName = dbContext.Locations.Where(l => l.ID == locationId).Select(l => l.Name).First();
+
+            LocationSelectViewModel locationSelectViewModel = new LocationSelectViewModel
+            {
+                locationId = locationId,
+                locationName = locationName
+            };
             
             ChartModel viewModel = new ChartModel
             {
                 WindChartModel = WindModel,
-                SwellChartModel = SwellModel
+                SwellChartModel = SwellModel,
+                locationSelectViewModel = locationSelectViewModel
             };
 
             return View(viewModel);
@@ -234,6 +243,36 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+    [HttpGet]
+    public IActionResult AddLocation()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult AddLocation(LocationViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var newLocation = new Location
+            {
+                Name = model.Name,
+                Latitude = model.Latitude,
+                Longitude = model.Longitude
+            };
+
+            dbContext.Locations.Add(newLocation);
+            dbContext.SaveChanges();
+
+            // Redirect to the index or another page after successful submission
+            return RedirectToAction("Index");
+        }
+
+        return View(model);
+    }
+
+
 }
     public class WindCalculator
     {
