@@ -3181,24 +3181,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/andrewscott/.nuget/packages/": {}
+    "C:\\Users\\akash\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/andrewscott/Documents/USF/DIS/Projects/final/SurfForecast/SurfForecast.csproj",
+      "projectUniqueName": "C:\\Users\\akash\\Source\\Repos\\final\\SurfForecast\\SurfForecast.csproj",
       "projectName": "SurfForecast",
-      "projectPath": "/Users/andrewscott/Documents/USF/DIS/Projects/final/SurfForecast/SurfForecast.csproj",
-      "packagesPath": "/Users/andrewscott/.nuget/packages/",
-      "outputPath": "/Users/andrewscott/Documents/USF/DIS/Projects/final/SurfForecast/obj/",
+      "projectPath": "C:\\Users\\akash\\Source\\Repos\\final\\SurfForecast\\SurfForecast.csproj",
+      "packagesPath": "C:\\Users\\akash\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\akash\\Source\\Repos\\final\\SurfForecast\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/andrewscott/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\akash\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3265,7 +3267,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.401/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
